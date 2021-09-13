@@ -1,4 +1,5 @@
 import os
+import json
 
 folder_path = input("Enter folder path (ex. /home/user/Cinema): ")
 api_url = input("Enter api url (ex. https://api.example.org): ")
@@ -14,5 +15,5 @@ for file in os.walk(folder_path):
             movies.append(movie)
             id = id+1
 f = open(folder_path+"/"+"index.html", "w")
-f.write(str(movies))
+f.write(json.dumps(movies))
 f.close()
