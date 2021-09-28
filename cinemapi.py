@@ -6,7 +6,6 @@ api_url = input("Enter api url (ex. https://api.example.org): ")
 id = 0
 movies = []
 for file in os.walk(folder_path):
-    print(file)
     items = file[2]
     for item in items:
         if item.endswith('.mp4'):
