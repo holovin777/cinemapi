@@ -17,7 +17,9 @@ for file in os.walk(folder_path):
             movie_url = movie_path.replace(folder_path, api_url)
             wikipedia.set_lang(lang)
             summary = wikipedia.summary(name)
-            movie = { "id": id, "name": name, "movie_path": movie_path, "movie_url": movie_url, "summary": summary }
+            page = wikipedia.page(name)
+            plot = page.section("Trama")
+            movie = { "id": id, "name": name, "movie_path": movie_path, "movie_url": movie_url, "summary": summary, "plot": plot }
             movies.append(movie)
             id = id+1
 f = open(folder_path+"/"+"index.html", "w")
